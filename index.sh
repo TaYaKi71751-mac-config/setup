@@ -11,6 +11,7 @@ git pull
 sudo cp -R * /etc/
 source /etc/bashrc
 
+brew install qemu
 brew install iterm2
 brew install nodejs
 brew install gh
