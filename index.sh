@@ -11,6 +11,7 @@ git pull
 sudo cp -R * /etc/
 source /etc/bashrc
 
+brew install watchexec
 brew install qemu
 brew install iterm2
 brew install nodejs
@@ -19,6 +20,7 @@ brew install --cask firefox@developer-edition
 brew install firefox
 brew install google-chrome
 brew install flutter
+brew install visual-studio-code
 brew install neovim
 brew install python
 brew install colima
@@ -31,6 +33,24 @@ brew install rbenv
 brew install eclipse-jee
 sudo gem install cocoapods
 
+mkdir -p "$HOME/Library/Application Support/Code/User/"
+cat > "$HOME/Library/Application Support/Code/User/settings.json" << EOF
+{
+    "git.autofetch": true,
+    "workbench.colorTheme": "Visual Studio Dark",
+    "editor.wordWrap": "on",
+    "rsp-ui.enableStartServerOnActivation": [
+        {
+            "id": "redhat.vscode-community-server-connector",
+            "name": "Community Server Connector",
+            "startOnActivation": true
+        }
+    ],
+    "tabnine.experimentalAutoImports": true,
+    "sqldeveloper.sqlHistory.historyLimit": 500,
+    "python.defaultInterpreterPath": "$HOME/.venv/bin/python",
+}
+EOF
 
 curl -LsSf \
 "https://github.com/\
