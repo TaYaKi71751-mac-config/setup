@@ -63,5 +63,6 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 sudo nvim +PlugInstall +qall
 sudo chown -R $(whoami) $HOME/.config/nvim
+sudo chown -R $(whoami) $HOME/.local
 nvim +'CocInstall -sync coc-json coc-tsserver coc-eslint coc-java coc-flutter' +qall
 
