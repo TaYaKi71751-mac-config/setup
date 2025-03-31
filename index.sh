@@ -21,6 +21,7 @@ brew install firefox
 brew install google-chrome
 brew install flutter
 brew install visual-studio-code
+brew install lua
 brew install neovim
 brew install python
 brew install colima
