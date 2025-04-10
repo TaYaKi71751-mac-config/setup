@@ -31,6 +31,9 @@ brew install maven
 brew install visual-studio-code
 brew install ruby
 brew install rbenv
+brew install tcl-tk
+brew install pyenv
+source /etc/bashrc
 brew install eclipse-jee
 sudo gem install cocoapods
 
