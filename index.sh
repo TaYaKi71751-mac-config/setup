@@ -29,6 +29,8 @@ brew install docker
 brew install openjdk
 brew install maven
 brew install visual-studio-code
+brew install spotify
+bash <(curl -sSL https://raw.githubusercontent.com/SpotX-Official/SpotX-Bash/main/spotx.sh)
 brew install ruby
 brew install rbenv
 brew install tcl-tk
