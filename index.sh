@@ -37,6 +37,7 @@ brew install tcl-tk
 brew install pyenv
 source /etc/bashrc
 brew install eclipse-jee
+brew install obs
 sudo gem install cocoapods
 
 mkdir -p "$HOME/Library/Application Support/Code/User/"
