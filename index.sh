@@ -69,7 +69,7 @@ config/nvim\
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 sudo nvim +PlugInstall +qall
-sudo chown -R $USER:staff $HOME/.config/nvim
+sudo chown -R $USER:staff $HOME/.config
 sudo chown -R $USER:staff $HOME/.local/share/nvim
 nvim +'CocInstall -sync coc-json coc-tsserver coc-eslint coc-java coc-flutter' +qall
 
