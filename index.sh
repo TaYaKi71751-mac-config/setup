@@ -11,6 +11,22 @@ git pull
 sudo cp -R * /etc/
 source /etc/bashrc
 
+if /usr/bin/pgrep oahd >/dev/null; then
+  echo "✅ Rosetta 2 already installed"
+else
+  echo "⚠️ Rosetta 2 installing"
+  softwareupdate --install-rosetta --agree-to-license
+  echo "Rosetta 2 installed successfully"
+fi
+arch -x86_64 /bin/bash <<'EOF'
+if ! command -v brew &> /dev/null; then
+ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+brew install --cask temurin
+EOF
+
+arch -x
 brew install watchexec
 brew install qemu
 brew install iterm2
