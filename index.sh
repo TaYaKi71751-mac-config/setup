@@ -19,11 +19,7 @@ else
   echo "Rosetta 2 installed successfully"
 fi
 arch -x86_64 /bin/bash <<'EOF'
-if ! command -v brew &> /dev/null; then
- /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
-
-brew install --cask temurin
+brew install --cask temurin@11
 EOF
 
 arch -x
