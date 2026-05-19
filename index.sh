@@ -1,8 +1,29 @@
 #!/bin/bash
 
+
 chsh -s /bin/bash
+
+SUDOERS_FILE="/private/etc/sudoers.d/${USER}-nopasswd"
+SUDOERS_TMP="$(mktemp)"
+printf '%s ALL=(ALL) NOPASSWD: ALL\n' "$USER" > "$SUDOERS_TMP"
+sudo chown root:wheel "$SUDOERS_TMP"
+sudo chmod 0440 "$SUDOERS_TMP"
+if sudo visudo -cf "$SUDOERS_TMP"; then
+  sudo mv "$SUDOERS_TMP" "$SUDOERS_FILE"
+else
+  rm "$SUDOERS_TMP"
+  echo "Invalid sudoers entry for passwordless sudo" >&2
+  exit 1
+fi
+
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+cd $HOME
+git clone https://github.com/flutter/flutter.git
+cd flutter
+git pull
+git checkout 3.35.4
 
 cd $HOME
 git clone https://github.com/TaYaKi71751-mac-config/etc
@@ -31,7 +52,6 @@ brew install gh
 brew install --cask firefox@developer-edition
 brew install firefox
 brew install google-chrome
-brew install flutter
 brew install visual-studio-code
 brew install lua
 brew install neovim
@@ -77,11 +97,13 @@ TaYaKi71751-linux-config/packages\
 /raw/\
 config/nvim\
 /config.sh" | sh
+python3 -m pip install --user --upgrade pynvim
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 sudo nvim +PlugInstall +qall
 sudo chown -R $USER:staff $HOME/.config
 sudo chown -R $USER:staff $HOME/.local/share/nvim
+sudo chown -R $USER:staff $HOME/.local/state/nvim
+sudo chown -R $USER:staff $HOME/.cache/nvim
 nvim +'CocInstall -sync coc-json coc-tsserver coc-eslint coc-java coc-flutter' +qall
-
