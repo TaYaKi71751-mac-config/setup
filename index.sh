@@ -42,32 +42,32 @@ brew install --cask temurin@11
 EOF
 
 arch -x
-brew install watchexec
-brew install qemu
-brew install iterm2
-brew install nodejs
-brew install gh
-brew install --cask firefox@developer-edition
-brew install firefox
-brew install google-chrome
-brew install visual-studio-code
-brew install lua
-brew install neovim
-brew install python
-brew install colima
-brew install docker
-brew install openjdk
-brew install maven
-brew install visual-studio-code
-brew install spotify
+brew install watchexec -y
+brew install qemu -y 
+brew install iterm2 -y
+brew install nodejs -y
+brew install gh -y
+brew install --cask firefox@developer-edition -y 
+brew install firefox -y
+brew install google-chrome -y
+brew install visual-studio-code -y
+brew install lua -y 
+brew install neovim -y
+brew install python -y
+brew install colima -y 
+brew install docker -y
+brew install openjdk -y
+brew install maven -y
+brew install visual-studio-code -y
+brew install spotify -y
 bash <(curl -sSL https://raw.githubusercontent.com/SpotX-Official/SpotX-Bash/main/spotx.sh)
-brew install ruby
-brew install rbenv
-brew install tcl-tk
-brew install pyenv
-source /etc/bashrc
-brew install eclipse-jee
-brew install obs
+brew install ruby -y
+brew install rbenv -y
+brew install tcl-tk -y
+brew install pyenv -y
+source /etc/zshrc
+brew install eclipse-jee -y
+brew install obs -y
 sudo gem install cocoapods
 
 mkdir -p "$HOME/Library/Application Support/Code/User/"
