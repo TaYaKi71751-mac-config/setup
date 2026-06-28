@@ -1,8 +1,6 @@
 #!/bin/bash
 
 
-chsh -s /bin/bash
-
 SUDOERS_FILE="/private/etc/sudoers.d/${USER}-nopasswd"
 SUDOERS_TMP="$(mktemp)"
 printf '%s ALL=(ALL) NOPASSWD: ALL\n' "$USER" > "$SUDOERS_TMP"
